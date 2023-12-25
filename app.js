@@ -18,6 +18,14 @@ let stuSchema = new Schema({
 let stuModel = mongoose.model("stus", stuSchema)
 // 插入文档
 //! 这里变成promise  不是回调函数
-stuModel.create({ age: 14, name: "wangwu" }).then((data) => {
-  console.log(data)
-})
+// stuModel
+//   .create({ age: 22, name: "猪八戒" }, { name: "沙和尚" })
+//   .then((data) => {
+//     console.log(data)
+//   })
+// 查看
+// const query = stuModel.find({ name: "唐僧" })
+
+const query = stuModel.findById("658902df22beae7b11dd800c")
+
+console.log(query.getFilter())
